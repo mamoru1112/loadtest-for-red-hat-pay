@@ -24,3 +24,10 @@ echo http://$(oc get route app --template={{.spec.host}})
 
 * ConfigMap の変更を検知し、自動的に Locust Pod が再デプロイされる
 
+# Locust のスケールアウト
+
+* slave Pod のレプリカ数の変更
+```
+# コマンド実行例
+oc scale dc/locust-slave --replicas=4
+```
