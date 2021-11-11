@@ -1,4 +1,4 @@
-from locust import HttpLocust, TaskSet, task, between
+from locust import HttpLocust, TaskSet, task, constant
 
 class MyTaskSet(TaskSet):
 
@@ -13,3 +13,4 @@ class MyTaskSet(TaskSet):
 
 class LoadTest(HttpLocust):
     task_set = MyTaskSet
+    wait_time = constant(0)
