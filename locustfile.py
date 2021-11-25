@@ -4,13 +4,13 @@ class MyTaskSet(TaskSet):
 
     @task
     def loadtest(self):
-        response1 = self.client.get("/get_token")
-        token = response1.json()["uuid"]
+        response1 = self.client.post("/pay/1")
+        token = response1.json()["tokenId"]["value"]
         print (token)
 
-        response2 = self.client.post("/post_token", {"token": token})
-        print (response2.json()["body"])
+        response2 = self.client.request(method="POST", url="/pay/1/" + token + "/1/10")
+        print (response2.json())
 
 class LoadTest(HttpLocust):
     task_set = MyTaskSet
-    wait_time = constant(0)
+    wait_time = constant(1)
