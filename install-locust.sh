@@ -7,3 +7,6 @@ oc project $HLOCUST_NAMESPACE
 
 oc process -f master-deployment.yaml | oc create -f -
 oc process -f slave-deployment.yaml | oc create -f -
+
+#clean up
+#oc delete all,cm -l template=locust

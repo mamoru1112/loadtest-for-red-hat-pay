@@ -8,7 +8,7 @@ class MyTaskSet(TaskSet):
         token = response1.json()["tokenId"]["value"]
         print (token)
 
-        response2 = self.client.request(method="POST", url="/pay/1/" + token + "/1/10")
+        response2 = self.client.request(method="POST", url="/pay/1/" + token + "/1/1")
         print (response2.json())
 
 class LoadTest(HttpLocust):
